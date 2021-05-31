@@ -33,7 +33,7 @@ class Ui_LoginWindow(object):
         self.label_2.setMaximumSize(QtCore.QSize(70, 70))
         self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("../res/imgs/database-storage.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("res/imgs/database-storage.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
