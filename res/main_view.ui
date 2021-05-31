@@ -118,7 +118,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Счета</string>
+         <string>Платежи</string>
         </property>
         <property name="icon">
          <iconset>
@@ -234,7 +234,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_1_products">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -880,7 +880,7 @@
              </widget>
             </item>
             <item row="3" column="1">
-             <widget class="QLineEdit" name="lineEdit"/>
+             <widget class="QLineEdit" name="_3_lineEdit_delivery_date"/>
             </item>
            </layout>
           </item>
@@ -994,7 +994,7 @@
           <item>
            <widget class="QLabel" name="label_36">
             <property name="text">
-             <string>Оформленные счета:</string>
+             <string>Платежи:</string>
             </property>
            </widget>
           </item>
@@ -1108,69 +1108,83 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="0">
+            <item row="3" column="0">
              <widget class="QLabel" name="label_42">
               <property name="text">
                <string>Дата продажи</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
+            <item row="3" column="1">
              <widget class="QLineEdit" name="_4_lineEdit_sell_date"/>
             </item>
-            <item row="3" column="0">
+            <item row="4" column="0">
              <widget class="QLabel" name="label_43">
               <property name="text">
                <string>Сумма</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
+            <item row="4" column="1">
              <widget class="QLineEdit" name="_4_lineEdit_price"/>
             </item>
-            <item row="4" column="0">
+            <item row="5" column="0">
              <widget class="QLabel" name="label_44">
               <property name="text">
                <string>НДС (в %)</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
+            <item row="5" column="1">
              <widget class="QLineEdit" name="_4_lineEdit_VAT"/>
             </item>
-            <item row="5" column="0">
+            <item row="6" column="0">
              <widget class="QLabel" name="label_45">
               <property name="text">
                <string>Сумма с НДС</string>
               </property>
              </widget>
             </item>
-            <item row="5" column="1">
+            <item row="6" column="1">
              <widget class="QLabel" name="_4_label_price_with_VAT">
               <property name="text">
                <string>0</string>
               </property>
              </widget>
             </item>
-            <item row="6" column="0">
+            <item row="7" column="0">
              <widget class="QLabel" name="label_47">
               <property name="text">
                <string>Ст. Оплаты</string>
               </property>
              </widget>
             </item>
-            <item row="6" column="1">
+            <item row="7" column="1">
              <widget class="QLineEdit" name="_4_lineEdit_pay_status"/>
             </item>
-            <item row="7" column="0">
+            <item row="8" column="0">
              <widget class="QLabel" name="label_48">
               <property name="text">
                <string>Ст. Поступления</string>
               </property>
              </widget>
             </item>
-            <item row="7" column="1">
+            <item row="8" column="1">
              <widget class="QLineEdit" name="_4_lineEdit_income_check"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>Операция</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="_4_label_type">
+              <property name="text">
+               <string>Продажа</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
