@@ -15,6 +15,8 @@ class ManagerCore(metaclass=Singleton):
         c = db_connect.cursor()
 
         c.execute('''
+            PRAGMA foreign_keys=ON;
+
             CREATE TABLE manufacturers (
                 id INTEGER PRIMARY KEY,
                 name TEXT NOT NULL,
@@ -30,17 +32,23 @@ class ManagerCore(metaclass=Singleton):
                 conclusion_date TEXT NOT NULL,
                 delivery_date TEXT NOT NULL,
                 delivery_conditions TEXT
-                addon TEXT
+                addon TEXT,
+                FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(id)
             );
 
             CREATE TABLE product_orders (
                 id INTEGER PRIMARY KEY,
-                type INTEGER NOT NULL,
-                parent_id INTEGER NOT NULL
+                contract_id INTEGER,
+                sale_id INTEGER,
                 product_id INTEGER NOT NULL,
                 count INTEGER,
                 remain_count INTEGER,
-                warehouse_id INTEGER NOT NULL
+                warehouse_id INTEGER NOT NULL,
+                CHECK(contract_id IS NOT NULL OR sale_id IS NOT NULL),
+                FOREIGN KEY(contract_id) REFERENCES contracts(id),
+                FOREIGN KEY(sale_id) REFERENCES sales(id),
+                FOREIGN KEY(product_id) REFERENCES products(id),
+                FOREIGN KEY(warehouse_id) REFERENCES warehouses(id)
             );
 
             CREATE TABLE payments (
@@ -51,7 +59,8 @@ class ManagerCore(metaclass=Singleton):
                 price TEXT NOT NULL,
                 vat TEXT,
                 payment_status INTEGER,
-                admission_status INTEGER
+                admission_status INTEGER,
+                FOREIGN KEY(order_id) REFERENCES product_orders(id)
             );
 
             CREATE TABLE warehouses (
@@ -62,7 +71,9 @@ class ManagerCore(metaclass=Singleton):
             CREATE TABLE sales (
                 id INTEGER PRIMARY KEY,
                 product_order_id INTEGER NOT NULL,
-                client_id INTEGER NOT NULL
+                client_id INTEGER NOT NULL,
+                FOREIGN KEY(product_order_id) REFERENCES product_orders(id),
+                FOREIGN KEY(client_id) REFERENCES clients(id)
             );
 
             CREATE TABLE clients (
@@ -70,6 +81,25 @@ class ManagerCore(metaclass=Singleton):
                 fullname TEXT
             );
 
+            CREATE TABLE products (
+                id INTEGER PRIMARY KEY,
+                manufacturer_id INTEGER,
+                name TEXT,
+                specs TEXT,
+                price TEXT,
+                packaging TEXT,
+                addon TEXT,
+                FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(id)
+            );
+
+            CREATE TABLE users(
+                id INTEGER PRIMARY KEY,
+                login TEXT,
+                login password_hash
+            );
+
         ''')
+
+        db_connect.commit()
 
         
