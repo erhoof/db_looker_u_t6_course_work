@@ -1,12 +1,28 @@
 from model.singleton import Singleton
 import sqlite3
+import bcrypt
+import logging
 
 class ManagerCore(metaclass=Singleton):
 
     def create_session(self, login, password, db_filename):
         try:
             with open(db_filename) as f:
-                print(f.readlines())
+                self._db_connect = sqlite3.connect(db_filename)
+                self._cursor = self._db_connect.cursor()
+
+                # Check for login / pass
+                self._cursor.execute('SELECT login, password_hash FROM users')
+
+                for g_login, g_password in self._cursor:
+                    if g_login != login: next
+
+                    if bcrypt.checkpw(password.encode(), g_password):
+                        return 0
+                    else:
+                        self._db_connect.close()
+                        return 2
+
         except IOError:
             return 1
 
@@ -115,6 +131,33 @@ class ManagerCore(metaclass=Singleton):
             );
         ''')
 
+        c.execute('''
+            CREATE INDEX index_warehouse
+            ON product_orders(warehouse_id);
+        ''')
+
+        c.execute('''
+            CREATE INDEX index_manufacturer
+            ON products(manufacturer_id);
+        ''')
+
         db_connect.commit()
+
+        # create admin/admin user
+        logging.info('Creating user admin/admin')
+        password_hash = bcrypt.hashpw('admin'.encode(), bcrypt.gensalt(12))
+
+        c.execute('INSERT INTO users(login, password_hash) VALUES(?, ?)', ('admin', password_hash))
+        db_connect.commit()
+
+        db_connect.close()
+
+    @property
+    def db_connect(self):
+        return self._db_connect
+
+    @property
+    def cursor(self):
+        return self._cursor
 
         
