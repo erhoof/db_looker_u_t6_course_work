@@ -14,9 +14,9 @@ class ManagerCore(metaclass=Singleton):
         db_connect = sqlite3.connect(db_filename)
         c = db_connect.cursor()
 
-        c.execute('''
-            PRAGMA foreign_keys=ON;
+        c.execute('PRAGMA foreign_keys=ON;')
 
+        c.execute('''
             CREATE TABLE manufacturers (
                 id INTEGER PRIMARY KEY,
                 name TEXT NOT NULL,
@@ -25,7 +25,9 @@ class ManagerCore(metaclass=Singleton):
                 accountant_fullname TEXT,
                 requisites TEXT NOT NULL
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE contracts (
                 id INTEGER PRIMARY KEY,
                 manufacturer_id INTEGER NOT NULL,
@@ -35,7 +37,9 @@ class ManagerCore(metaclass=Singleton):
                 addon TEXT,
                 FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(id)
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE product_orders (
                 id INTEGER PRIMARY KEY,
                 contract_id INTEGER,
@@ -50,7 +54,9 @@ class ManagerCore(metaclass=Singleton):
                 FOREIGN KEY(product_id) REFERENCES products(id),
                 FOREIGN KEY(warehouse_id) REFERENCES warehouses(id)
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE payments (
                 id INTEGER PRIMARY KEY,
                 type INTEGER NOT NULL,
@@ -62,12 +68,16 @@ class ManagerCore(metaclass=Singleton):
                 admission_status INTEGER,
                 FOREIGN KEY(order_id) REFERENCES product_orders(id)
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE warehouses (
                 id INTEGER PRIMARY KEY,
                 address TEXT
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE sales (
                 id INTEGER PRIMARY KEY,
                 product_order_id INTEGER NOT NULL,
@@ -75,12 +85,16 @@ class ManagerCore(metaclass=Singleton):
                 FOREIGN KEY(product_order_id) REFERENCES product_orders(id),
                 FOREIGN KEY(client_id) REFERENCES clients(id)
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE clients (
                 id INTEGER PRIMARY KEY,
                 fullname TEXT
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE products (
                 id INTEGER PRIMARY KEY,
                 manufacturer_id INTEGER,
@@ -91,13 +105,14 @@ class ManagerCore(metaclass=Singleton):
                 addon TEXT,
                 FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(id)
             );
+        ''')
 
+        c.execute('''
             CREATE TABLE users(
                 id INTEGER PRIMARY KEY,
                 login TEXT,
-                login password_hash
+                password_hash TEXT
             );
-
         ''')
 
         db_connect.commit()
