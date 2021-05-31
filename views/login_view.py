@@ -9,6 +9,7 @@ class LoginView(QMainWindow):
         self._ui = Ui_LoginWindow()
         self._controller = controller
         self._controller._ui = self._ui
+        self._controller._view = self
         
         self._ui.setupUi(self)
 
