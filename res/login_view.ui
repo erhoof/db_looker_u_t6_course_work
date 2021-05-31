@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>276</width>
-    <height>321</height>
+    <width>286</width>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -98,6 +98,13 @@
      <widget class="QLineEdit" name="passwordEdit">
       <property name="placeholderText">
        <string>Пароль</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_file">
+      <property name="placeholderText">
+       <string>Имя файла</string>
       </property>
      </widget>
     </item>

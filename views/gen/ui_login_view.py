@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'login_view.ui'
+# Form implementation generated from reading ui file 'res/login_view.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -12,10 +12,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_LoginWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("LoginWindow")
-        MainWindow.resize(276, 321)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+    def setupUi(self, LoginWindow):
+        LoginWindow.setObjectName("LoginWindow")
+        LoginWindow.resize(286, 399)
+        self.centralwidget = QtWidgets.QWidget(LoginWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -33,7 +33,7 @@ class Ui_LoginWindow(object):
         self.label_2.setMaximumSize(QtCore.QSize(70, 70))
         self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("res/imgs/database-storage.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("../res/imgs/database-storage.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
@@ -58,21 +58,25 @@ class Ui_LoginWindow(object):
         self.passwordEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.passwordEdit.setObjectName("passwordEdit")
         self.verticalLayout.addWidget(self.passwordEdit)
+        self.lineEdit_file = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_file.setObjectName("lineEdit_file")
+        self.verticalLayout.addWidget(self.lineEdit_file)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.loginButton = QtWidgets.QPushButton(self.centralwidget)
         self.loginButton.setObjectName("loginButton")
         self.verticalLayout.addWidget(self.loginButton)
-        MainWindow.setCentralWidget(self.centralwidget)
+        LoginWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(LoginWindow)
+        QtCore.QMetaObject.connectSlotsByName(LoginWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, LoginWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "erManager: Авторизация"))
-        self.label.setText(_translate("MainWindow", "Добро Пожаловать в erManager!"))
-        self.label_3.setText(_translate("MainWindow", "Вход в Систему"))
-        self.loginEdit.setPlaceholderText(_translate("MainWindow", "Логин"))
-        self.passwordEdit.setPlaceholderText(_translate("MainWindow", "Пароль"))
-        self.loginButton.setText(_translate("MainWindow", "Вход"))
+        LoginWindow.setWindowTitle(_translate("LoginWindow", "erManager: Авторизация"))
+        self.label.setText(_translate("LoginWindow", "Добро Пожаловать в erManager!"))
+        self.label_3.setText(_translate("LoginWindow", "Вход в Систему"))
+        self.loginEdit.setPlaceholderText(_translate("LoginWindow", "Логин"))
+        self.passwordEdit.setPlaceholderText(_translate("LoginWindow", "Пароль"))
+        self.lineEdit_file.setPlaceholderText(_translate("LoginWindow", "Имя файла"))
+        self.loginButton.setText(_translate("LoginWindow", "Вход"))
