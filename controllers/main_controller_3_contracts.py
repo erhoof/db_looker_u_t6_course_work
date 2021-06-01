@@ -4,6 +4,7 @@ from controllers.main_controller import MainController
 
 class MainController_3_Contracts(MainController):
 
-    def __init__(self, ui: Ui_MainWindow = None):
+    def __init__(self, parent: MainController):
         super().__init__()
-        self._ui = ui
+        self._parent = parent
+        self._ui = parent._ui

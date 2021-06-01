@@ -1,9 +1,20 @@
-from views.gen.ui_main_view import Ui_MainWindow
-from PyQt5.QtCore import QObject, pyqtSlot
+from model.manager_core import ManagerCore
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtGui import QStandardItemModel
 from controllers.main_controller import MainController
+from model.manager_core import ManagerCore
+import sqlite3
 
 class MainController_1_Products(MainController):
 
-    def __init__(self, ui: Ui_MainWindow = None):
+    def __init__(self, parent: MainController):
         super().__init__()
-        self._ui = ui
+        self._parent = parent
+        self._ui = parent._ui
+        
+    def update(self):
+        pass
+
+    @pyqtSlot()
+    def on_1_pushButton_new_order_clicked(self):
+        print('Got it!')

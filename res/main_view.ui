@@ -19,6 +19,9 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QPushButton" name="pushButton_products">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -49,7 +52,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_warehouse">
+       <widget class="QPushButton" name="pushButton_warehouses">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -161,7 +164,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_done">
+       <widget class="QPushButton" name="pushButton_orders">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -234,7 +237,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_1_products">
        <layout class="QHBoxLayout" name="horizontalLayout_3">

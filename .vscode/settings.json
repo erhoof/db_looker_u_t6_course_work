@@ -1,3 +1,12 @@
 {
-    "python.pythonPath": "/usr/bin/python"
+    "python.pythonPath": "/usr/bin/python",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Core",
+            "database": "${workspaceFolder:db_looker_u_t6_course_work}/core.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }
