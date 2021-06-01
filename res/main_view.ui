@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>806</width>
-    <height>491</height>
+    <width>927</width>
+    <height>568</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -237,7 +237,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_1_products">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -607,6 +607,22 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="_2_pushButton_remove">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Удалить склад</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>imgs/rocket.png</normaloff>imgs/rocket.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="_2_pushButton_new_warehouse">
             <property name="minimumSize">
              <size>
@@ -704,6 +720,22 @@
           </item>
           <item>
            <widget class="QTableView" name="_2_tableView_products"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="_2_pushButton_edit">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Изменить</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>imgs/megaphone.png</normaloff>imgs/megaphone.png</iconset>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -1701,7 +1733,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>806</width>
+     <width>927</width>
      <height>19</height>
     </rect>
    </property>

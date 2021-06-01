@@ -66,7 +66,7 @@ class MainController_5_Manufacturers(MainController):
         ManagerCore().cursor.execute(f'''
             SELECT id, name, address, ceo_fullname, accountant_fullname, requisites 
                 FROM manufacturers
-                WHERE id={selected.row()+1}
+                WHERE id={self._id}
         ''')
         res = ManagerCore().cursor.fetchall()[0]
         
