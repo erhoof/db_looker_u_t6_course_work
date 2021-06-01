@@ -42,6 +42,9 @@ class MainView(QMainWindow):
         self._ui._2_pushButton_new_warehouse.clicked.connect(self._controller._2_warehouses_tab.on_pushbutton_new_warehouse_clicked)
         self._ui._2_pushButton_remove.clicked.connect(self._controller._2_warehouses_tab.on_pushButton_remove_clicked)
 
+        # Tab 3
+        self._ui._3_pushButton_newContract.clicked.connect(self._controller._3_contracts_tab.on_pushButton_newContract_clicked)
+
         # Tab 4
         self._ui._4_pushButton_about_bills.clicked.connect(self._controller._4_bills_tab.on_pushButton_about_bills_clicked)
         self._ui._4_pushButton_new_report.clicked.connect(self._controller._4_bills_tab.on_pushButton_new_report_clicked)
