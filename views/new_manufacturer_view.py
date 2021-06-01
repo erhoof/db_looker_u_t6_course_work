@@ -15,4 +15,4 @@ class NewManufacturerView(QMainWindow):
         self._ui.setupUi(self)
 
         self._ui.buttonBox.accepted.connect(self._controller.on_buttonBox_accepted)
-        self._ui.buttonBox.rejected.connect(self._controller.on_buttonBox_rejected)
+        self._ui.buttonBox.rejected.connect(self._controller.on_buttonBox_accepted)

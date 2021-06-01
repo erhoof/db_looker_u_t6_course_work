@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>790</width>
-    <height>512</height>
+    <width>806</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/sale.png</normaloff>imgs/sale.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/sale.png</normaloff>../../../.designer/backup/imgs/sale.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -69,7 +69,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/store.png</normaloff>imgs/store.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/store.png</normaloff>../../../.designer/backup/imgs/store.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -97,7 +97,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/contract.png</normaloff>imgs/contract.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/contract.png</normaloff>../../../.designer/backup/imgs/contract.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -125,7 +125,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/wallet.png</normaloff>imgs/wallet.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/wallet.png</normaloff>../../../.designer/backup/imgs/wallet.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -153,7 +153,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/organization.png</normaloff>imgs/organization.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/organization.png</normaloff>../../../.designer/backup/imgs/organization.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -181,7 +181,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/email.png</normaloff>imgs/email.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/email.png</normaloff>../../../.designer/backup/imgs/email.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -222,7 +222,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>imgs/cloud.png</normaloff>imgs/cloud.png</iconset>
+          <normaloff>../../../.designer/backup/imgs/cloud.png</normaloff>../../../.designer/backup/imgs/cloud.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -495,7 +495,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/megaphone.png</normaloff>imgs/megaphone.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/megaphone.png</normaloff>../../../.designer/backup/imgs/megaphone.png</iconset>
               </property>
              </widget>
             </item>
@@ -511,7 +511,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/certification.png</normaloff>imgs/certification.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/certification.png</normaloff>../../../.designer/backup/imgs/certification.png</iconset>
               </property>
              </widget>
             </item>
@@ -535,7 +535,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/exchange.png</normaloff>imgs/exchange.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/exchange.png</normaloff>../../../.designer/backup/imgs/exchange.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -602,7 +602,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/website.png</normaloff>imgs/website.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/website.png</normaloff>../../../.designer/backup/imgs/website.png</iconset>
             </property>
            </widget>
           </item>
@@ -624,7 +624,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/package.png</normaloff>imgs/package.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/package.png</normaloff>../../../.designer/backup/imgs/package.png</iconset>
             </property>
            </widget>
           </item>
@@ -762,7 +762,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/website.png</normaloff>imgs/website.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/website.png</normaloff>../../../.designer/backup/imgs/website.png</iconset>
             </property>
            </widget>
           </item>
@@ -784,7 +784,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/email.png</normaloff>imgs/email.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/email.png</normaloff>../../../.designer/backup/imgs/email.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -932,7 +932,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/sale.png</normaloff>imgs/sale.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/sale.png</normaloff>../../../.designer/backup/imgs/sale.png</iconset>
               </property>
              </widget>
             </item>
@@ -948,7 +948,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/megaphone.png</normaloff>imgs/megaphone.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/megaphone.png</normaloff>../../../.designer/backup/imgs/megaphone.png</iconset>
               </property>
              </widget>
             </item>
@@ -964,7 +964,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/certification.png</normaloff>imgs/certification.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/certification.png</normaloff>../../../.designer/backup/imgs/certification.png</iconset>
               </property>
              </widget>
             </item>
@@ -982,7 +982,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/rocket.png</normaloff>imgs/rocket.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/rocket.png</normaloff>../../../.designer/backup/imgs/rocket.png</iconset>
             </property>
            </widget>
           </item>
@@ -1049,7 +1049,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/website.png</normaloff>imgs/website.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/website.png</normaloff>../../../.designer/backup/imgs/website.png</iconset>
             </property>
            </widget>
           </item>
@@ -1066,7 +1066,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/contract.png</normaloff>imgs/contract.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/contract.png</normaloff>../../../.designer/backup/imgs/contract.png</iconset>
             </property>
            </widget>
           </item>
@@ -1218,7 +1218,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/megaphone.png</normaloff>imgs/megaphone.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/megaphone.png</normaloff>../../../.designer/backup/imgs/megaphone.png</iconset>
               </property>
              </widget>
             </item>
@@ -1234,7 +1234,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/certification.png</normaloff>imgs/certification.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/certification.png</normaloff>../../../.designer/backup/imgs/certification.png</iconset>
               </property>
              </widget>
             </item>
@@ -1303,7 +1303,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>imgs/organization.png</normaloff>imgs/organization.png</iconset>
+              <normaloff>../../../.designer/backup/imgs/organization.png</normaloff>../../../.designer/backup/imgs/organization.png</iconset>
             </property>
            </widget>
           </item>
@@ -1421,6 +1421,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_12">
             <item>
              <widget class="QPushButton" name="_5_pushButton_edit_products">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -1431,12 +1434,15 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/sale.png</normaloff>imgs/sale.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/sale.png</normaloff>../../../.designer/backup/imgs/sale.png</iconset>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="_5_pushButton_edit">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -1447,12 +1453,15 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/megaphone.png</normaloff>imgs/megaphone.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/megaphone.png</normaloff>../../../.designer/backup/imgs/megaphone.png</iconset>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="_5_pushButton_update">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -1463,7 +1472,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/certification.png</normaloff>imgs/certification.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/certification.png</normaloff>../../../.designer/backup/imgs/certification.png</iconset>
               </property>
              </widget>
             </item>
@@ -1657,7 +1666,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/megaphone.png</normaloff>imgs/megaphone.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/megaphone.png</normaloff>../../../.designer/backup/imgs/megaphone.png</iconset>
               </property>
              </widget>
             </item>
@@ -1673,7 +1682,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>imgs/certification.png</normaloff>imgs/certification.png</iconset>
+                <normaloff>../../../.designer/backup/imgs/certification.png</normaloff>../../../.designer/backup/imgs/certification.png</iconset>
               </property>
              </widget>
             </item>
@@ -1692,7 +1701,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>790</width>
+     <width>806</width>
      <height>19</height>
     </rect>
    </property>
