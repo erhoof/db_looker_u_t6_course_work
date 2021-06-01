@@ -95,8 +95,8 @@ class NewOrderController(QObject):
         # Setup manufacturers
         self._list_order_model = QStandardItemModel()
         self._ui.listView_selected.setModel(self._list_order_model)
-        self._ui.listView_products.selectionModel().currentChanged.connect(self._controller.on_listView_products_rowSelected)
-        self._ui.listView_selected.selectionModel().currentChanged.connect(self._controller.on_listView_selected_rowSelected)
+        self._ui.listView_products.selectionModel().currentChanged.connect(self.on_listView_products_rowSelected)
+        self._ui.listView_selected.selectionModel().currentChanged.connect(self.on_listView_selected_rowSelected)
 
 
     @pyqtSlot(QModelIndex, QModelIndex)
