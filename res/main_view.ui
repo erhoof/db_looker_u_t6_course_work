@@ -237,7 +237,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page_1_products">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -592,6 +592,9 @@
           </item>
           <item>
            <widget class="QPushButton" name="_2_pushButton_about_products">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -1118,7 +1121,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="label_38">
               <property name="text">
-               <string>ID Счета</string>
+               <string>ID Платежа</string>
               </property>
              </widget>
             </item>
@@ -1194,18 +1197,12 @@
               </property>
              </widget>
             </item>
-            <item row="7" column="1">
-             <widget class="QLineEdit" name="_4_lineEdit_pay_status"/>
-            </item>
             <item row="8" column="0">
              <widget class="QLabel" name="label_48">
               <property name="text">
                <string>Ст. Поступления</string>
               </property>
              </widget>
-            </item>
-            <item row="8" column="1">
-             <widget class="QLineEdit" name="_4_lineEdit_income_check"/>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_13">
@@ -1219,6 +1216,44 @@
               <property name="text">
                <string>Продажа</string>
               </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QComboBox" name="_4_comboBox_pay">
+              <item>
+               <property name="text">
+                <string>Оплачено</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Не оплачено</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Неизвестно</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QComboBox" name="_4_comboBox_income">
+              <item>
+               <property name="text">
+                <string>Поступило</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Не поступило</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Неизвестно</string>
+               </property>
+              </item>
              </widget>
             </item>
            </layout>
@@ -1251,22 +1286,6 @@
               <property name="icon">
                <iconset>
                 <normaloff>../../../.designer/backup/imgs/megaphone.png</normaloff>../../../.designer/backup/imgs/megaphone.png</iconset>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="_4_pushButton_update">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Обновить</string>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>../../../.designer/backup/imgs/certification.png</normaloff>../../../.designer/backup/imgs/certification.png</iconset>
               </property>
              </widget>
             </item>
