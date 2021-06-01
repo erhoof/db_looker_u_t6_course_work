@@ -1,7 +1,7 @@
 from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from views.gen.ui_new_order_view import Ui_NewOrderView
 from model.manager_core import ManagerCore
-from PyQt5.QtCore import QModelIndex, QObject, pyqtSlot
+from PyQt5.QtCore import QModelIndex, QObject, pyqtSlot, Qt
 from PyQt5.QtWidgets import QMessageBox
 import logging
 
@@ -59,11 +59,11 @@ class NewOrderController(QObject):
             count = data[data.find('-')+2:]
 
             # Get Price
-            price = ManagerCore().cursor.execute('SELECT price FROM products WHERE id = ?', int(id)).fetchall()[0][0]
+            price = ManagerCore().cursor.execute('SELECT price FROM products WHERE id = ?', [int(id)]).fetchall()[0][0]
 
             full_price += float(count) * float(price)
 
-        self._ui.label_full_price.setText(full_price)
+        self._ui.label_full_price.setText(str(full_price))
 
 
     @pyqtSlot(QModelIndex, QModelIndex)
@@ -111,25 +111,30 @@ class NewOrderController(QObject):
         item = QStandardItem(f'({self._product_id}) {self._product_name} - 1')
         #TODO: Check for unique
         self._list_order_model.appendRow(item)
+        self.calculatePrice()
 
 
     @pyqtSlot(QModelIndex, QModelIndex)
     def on_listView_selected_rowSelected(self, selected: QModelIndex):
-        string = str(self._list_products_model.data(selected))
+        string = str(self._list_order_model.data(selected))
         count = string[string.find('-')+2:]
         self._selected_id = string[string.find('(')+1: string.find(')')]
         self._selected_index = selected
 
+        print('count:', string)
         self._ui.spinBox_count.setValue(int(count))
         self._ui.spinBox_count.setEnabled(True)
 
 
     @pyqtSlot(int)
     def on_spinbox_count_valueChanged(self, index):
-        string = str(self._list_products_model.data(self._selected_index))
+        string = str(self._list_order_model.data(self._selected_index))
         string_wo_count = string[:string.find('-')+1]
+        full_string = f'{string_wo_count} {index}'
+        print(full_string)
         
-        self._list_products_model.setData(self._selected_index, f'{string_wo_count}{index}')
+        self._list_order_model.setData(self._selected_index, full_string)
+        self.calculatePrice()
 
 
     @pyqtSlot()
@@ -155,7 +160,7 @@ class NewOrderController(QObject):
             INSERT INTO contracts 
                 (manufacturer_id, conclusion_date, delivery_date, delivery_conditions)
                 VALUES (?, ?, ?, ?)
-        ''', int(self._m_id), concluson_date, delivery_date, self._ui.lineEdit_conditions.text())
+        ''', (int(self._m_id), concluson_date, delivery_date, self._ui.lineEdit_conditions.text()))
         ManagerCore().db_connect.commit()
         contract_id = ManagerCore().cursor.execute('SELECT last_insert_rowid()').fetchall()[0][0]
 
@@ -170,15 +175,15 @@ class NewOrderController(QObject):
             count = data[data.find('-')+2:]
 
             # Get Price
-            price = ManagerCore().cursor.execute('SELECT price FROM products WHERE id = ?', int(id)).fetchall()[0][0]
-            full_price = price * count
+            price = ManagerCore().cursor.execute('SELECT price FROM products WHERE id = ?', [int(id)]).fetchall()[0][0]
+            full_price = float(price) * float(count)
 
             # 2. Generate order
             ManagerCore().cursor.execute('''
                 INSERT INTO product_orders 
                     (contract_id, product_id, count, remain_count, warehouse_id)
-                    VALUES (?, ?, ?, ?)
-            ''', int(contract_id), int(id), int(count), int(count), int(warehouse_id))
+                    VALUES (?, ?, ?, ?, ?)
+            ''', (int(contract_id), int(id), int(count), int(count), int(warehouse_id)))
             ManagerCore().db_connect.commit()
             order_id = ManagerCore().cursor.execute('SELECT last_insert_rowid()').fetchall()[0][0]
 
@@ -187,7 +192,7 @@ class NewOrderController(QObject):
                 INSERT INTO payments 
                     (type, order_id, date, price, vat, payment_status, admission_status)
                     VALUES (?, ?, ?, ?, ?, ?, ?)
-            ''', int(1, order_id, concluson_date, full_price, '20', 0, 0))
+            ''', (1, order_id, concluson_date, full_price, '20', 0, 0))
             ManagerCore().db_connect.commit()
         
         self._view.close()
