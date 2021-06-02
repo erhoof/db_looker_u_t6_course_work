@@ -107,8 +107,8 @@ class MainController_4_Bills(MainController):
                 WHERE id = ?''', (date, price, vat, pay_status, admission_status, self._id))
         ManagerCore().db_connect.commit()
         self.calculateVAT()
-
-
+        QMessageBox.information(None, 'Изменение данных', 'Поля обновлены!')
+        
     @pyqtSlot()
     def on_pushButton_about_bills_clicked(self):
         # Calculate full income / expenses

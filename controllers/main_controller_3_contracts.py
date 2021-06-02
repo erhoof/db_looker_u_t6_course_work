@@ -120,7 +120,8 @@ class MainController_3_Contracts(MainController):
                     delivery_conditions = ?
                 WHERE id = ?''', (date_conclusion, date_delivery, delivery_conditions, self._id))
         ManagerCore().db_connect.commit()
-
+        QMessageBox.information(None, 'Изменение данных', 'Поля обновлены!')
+        
 
     @pyqtSlot()
     def on_pushButton_remove_clicked(self):

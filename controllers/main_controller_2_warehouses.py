@@ -185,4 +185,6 @@ class MainController_2_Warehouses(MainController):
             UPDATE warehouses
                 SET address = ?
                 WHERE id = ?''', (addr, int(self._id)))
+        
+        QMessageBox.information(None, 'Изменение данных', 'Поля обновлены!')
 

@@ -116,7 +116,8 @@ class MainController_5_Manufacturers(MainController):
                 WHERE id = ?''', (name, address, CEO, accountant, requisites, self._id))
         ManagerCore().db_connect.commit()
         #self._ui._5_listView_manufacturers.setCurrentIndex(self._list_model.createIndex(int(self._id)-1, 0))
-
+        QMessageBox.information(None, 'Изменение данных', 'Поля обновлены!')
+        
     @pyqtSlot()
     def on_pushButton_update_clicked(self):
         self.update_products_table()

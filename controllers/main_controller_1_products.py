@@ -3,6 +3,7 @@ from controllers.new_sale_controller import NewSaleController
 from model.manager_core import ManagerCore
 from PyQt5.QtCore import QModelIndex, pyqtSlot
 from PyQt5.QtGui import QStandardItem, QStandardItemModel
+from PyQt5.QtWidgets import QMessageBox
 from controllers.main_controller import MainController
 from model.manager_core import ManagerCore
 import sqlite3

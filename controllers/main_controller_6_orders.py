@@ -3,9 +3,11 @@ from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from controllers.main_controller import MainController
 from views.gen.ui_main_view import Ui_MainWindow
 from PyQt5.QtCore import QModelIndex, QObject, pyqtSlot
+from PyQt5.QtWidgets import QMessageBox
 from controllers.main_controller import MainController
 from controllers.new_order_controller import NewOrderController
 from views.new_order_view import NewOrderView
+import logging
 
 class MainController_6_Orders(MainController):
 
@@ -51,8 +53,9 @@ class MainController_6_Orders(MainController):
         req = ManagerCore().cursor.execute('''
             SELECT po.product_id, p.name, p.specs, p.price, po.count, c.fullname, c.id
                 FROM product_orders AS po, products AS p, clients AS c, sales AS s
-                WHERE s.id = ? AND c.id = s.cliend_id AND po.product_id = p.id AND po.sale_id = s.id
-        ''').fetchall()[0]
+                WHERE s.id = ? AND c.id = s.client_id AND po.product_id = p.id AND po.sale_id = s.id
+        ''', [self._id]).fetchall()[0]
+        print(req)
 
         self._ui._6_label_product_id.setText(str(req[0]))
         self._ui._6_label_product_name.setText(str(req[1]))
@@ -61,16 +64,20 @@ class MainController_6_Orders(MainController):
         price = req[3]
         count = req[4]
         self._ui._6_label_price_for_one.setText(price)
-        self._ui._6_label_count_of_product.setText(count)
+        self._ui._6_label_count_of_product.setText(str(count))
         self._ui._6_label_price.setText(str(int(price) * int(count)))
 
         self._ui._6_plainTextEdit_client.setPlainText(req[5])
+
+        self._req = req
 
 
     @pyqtSlot()
     def on_pushButton_edit_clicked(self):
         ManagerCore().cursor.execute('''
             UPDATE clients
-                SET fullname = ?,
-                WHERE id = ?''', (self._ui._6_plainTextEdit_client.toPlainText(), int(req[6])))
+                SET fullname = ?
+                WHERE id = ?''', (self._ui._6_plainTextEdit_client.toPlainText(), int(self._req[6])))
         ManagerCore().db_connect.commit()
+        logging.info(f'tab6: changed name at id ({self._req[6]}) to: {self._ui._6_plainTextEdit_client.toPlainText()}')
+        QMessageBox.information(None, 'Изменение данных', 'Поля обновлены!')

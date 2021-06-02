@@ -10,6 +10,7 @@ class NewOrderController(QObject):
     def __init__(self, ui: Ui_NewOrderView = None):
         super().__init__()
         self._ui = ui
+        self._product_name = ''
 
 
     def update(self):
@@ -98,6 +99,11 @@ class NewOrderController(QObject):
         self._ui.listView_products.selectionModel().currentChanged.connect(self.on_listView_products_rowSelected)
         self._ui.listView_selected.selectionModel().currentChanged.connect(self.on_listView_selected_rowSelected)
 
+        # Select product
+        string = str(self._list_products_model.data(self._list_products_model.index(0, 0)))
+        self._product_id = string[string.find('(')+1: string.find(')')]
+        self._product_name = string[string.find(')')+2:]
+
 
     @pyqtSlot(QModelIndex, QModelIndex)
     def on_listView_products_rowSelected(self, selected: QModelIndex):
@@ -108,6 +114,8 @@ class NewOrderController(QObject):
 
     @pyqtSlot()
     def on_pushButton_add_product_clicked(self):
+        if not self._product_name: return
+
         item = QStandardItem(f'({self._product_id}) {self._product_name} - 1')
         #TODO: Check for unique
         self._list_order_model.appendRow(item)
