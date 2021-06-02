@@ -27,15 +27,16 @@ class MainController_4_Bills(MainController):
     def update(self):
         # Get manufacturers
         ManagerCore().cursor.execute('''
-            SELECT id, type, price, date FROM payments
+            SELECT id, type, price FROM payments
         ''')
         
         # Fill Up list of manufacturers
         self._list_model.clear()
         self._id = 0
 
-        for id, name in ManagerCore().cursor:
-            item = QStandardItem(f'({id}) {name}')
+        for id, type, price in ManagerCore().cursor:
+            type = 'В' if type else 'ИЗ'
+            item = QStandardItem(f'({id}) :{type}: {price}')
             self._list_model.appendRow(item)
 
         # Count of manufacturers
@@ -51,26 +52,33 @@ class MainController_4_Bills(MainController):
         self._id = string[string.find('(')+1: string.find(')')]
 
         # Get data
-        ManagerCore().cursor.execute(f'''
-            SELECT * FROM bills
-                WHERE id={self._id}
-        ''')
+        ManagerCore().cursor.execute('''
+            SELECT * FROM payments
+                WHERE id = ?
+        ''', [self._id])
         res = ManagerCore().cursor.fetchall()[0]
+
+        # Get contract
+        contract_id =ManagerCore().cursor.execute('''
+            SELECT c.id FROM contracts AS c, product_orders AS po, payments AS p
+                WHERE po.contract_id = c.id AND p.order_id = po.id
+        ''').fetchall()[0][0]
+
         
         # Fill up with data
         self._ui._4_label_bill_id.setText(str(res[0]))
-        self._ui._4_label_contract_id.setText(str(res[2]))
+        self._ui._4_label_contract_id.setText(str(contract_id))
         self._ui._4_label_type.setText('Списание' if res[1] else 'Поступление')
-        self._ui._4_lineEdit_sell_date(res[3])
-        self._ui._4_lineEdit_price(res[4])
-        self._ui._4_lineEdit_VAT(res[5])
+        self._ui._4_lineEdit_sell_date.setText(res[3])
+        self._ui._4_lineEdit_price.setText(res[4])
+        self._ui._4_lineEdit_VAT.setText(res[5])
         self._ui._4_comboBox_pay.setCurrentIndex(res[6])
         self._ui._4_comboBox_income.setCurrentIndex(res[7])
 
-        self.calculateVAT()
+        self.calculateVAT(res)
 
     
-    def calculateVAT(self):
+    def calculateVAT(self, res):
         vat = (1.0 + (0.01 * int(res[5]))) * float(res[4])
         self._ui._4_label_price_with_VAT.setText(str(vat))
 

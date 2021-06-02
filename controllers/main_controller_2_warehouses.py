@@ -41,7 +41,7 @@ class MainController_2_Warehouses(MainController):
             SELECT COUNT(id) FROM warehouses
         ''')
         self._ui._2_label_warehouse_count.setText(f'Кол-во: {ManagerCore().cursor.fetchall()[0][0]}')
-        
+
 
     def update_products_table(self):
         if not self._id: return
@@ -78,8 +78,7 @@ class MainController_2_Warehouses(MainController):
             SELECT SUM(remain_count) FROM product_orders
                 WHERE warehouse_id = ?
         ''', str(self._id)).fetchall()[0]
-        self._ui._2_label_product_count.setText(data[0] if data[0] else '0')
-        print(data[0])
+        self._ui._2_label_product_count.setText(str(data[0]) if data[0] else '0')
 
         # Price
         prices = ManagerCore().cursor.execute('''
@@ -90,8 +89,7 @@ class MainController_2_Warehouses(MainController):
                         WHERE warehouse_id = ?)
                 AND p.id = po.product_id
         ''', str(self._id)).fetchall()[0]
-        print(prices[0])
-        self._ui._2_label_full_price.setText(data[0] if data[0] else '0')
+        self._ui._2_label_full_price.setText(str(prices[0]) if prices[0] else '0')
 
         self.update_products_table()
 
@@ -131,23 +129,23 @@ class MainController_2_Warehouses(MainController):
             # 1. Remove contracts
             ManagerCore().cursor.execute('''
                 DELETE FROM contracts WHERE id IN 
-                    (SELECT contract_id FROM product_orders WHERE warehouse_id = ?)''', self._id)
+                    (SELECT contract_id FROM product_orders WHERE warehouse_id = ?)''', [self._id])
 
             # 2. Remove sales
             ManagerCore().cursor.execute('''
                 DELETE FROM sales WHERE product_order_id IN 
-                    (SELECT sale_id FROM product_orders WHERE warehouse_id = ?)''', self._id)
+                    (SELECT sale_id FROM product_orders WHERE warehouse_id = ?)''', [self._id])
 
             # 3. Remove payments
             ManagerCore().cursor.execute('''
                 DELETE FROM payments WHERE order_id IN 
-                    (SELECT id FROM product_orders WHERE warehouse_id = ?)''', self._id)
+                    (SELECT id FROM product_orders WHERE warehouse_id = ?)''', [self._id])
 
             # 4. Remove product order
-            ManagerCore().cursor.execute('DELETE FROM product_orders WHERE warehouse_id = ?', self._id)
+            ManagerCore().cursor.execute('DELETE FROM product_orders WHERE warehouse_id = ?', [self._id])
 
             # 5. Remove warehouse
-            ManagerCore().cursor.execute('DELETE FROM warehouses WHERE id = ?', self._id)
+            ManagerCore().cursor.execute('DELETE FROM warehouses WHERE id = ?', [self._id])
 
             ManagerCore().db_connect.commit()
 
@@ -171,7 +169,7 @@ class MainController_2_Warehouses(MainController):
                 WHERE warehouse_id = ?''', (int(newId), int(self._id)))
 
         # 2. Remove warehouse
-        ManagerCore().cursor.execute('DELETE FROM warehouses WHERE id = ?', self._id)
+        ManagerCore().cursor.execute('DELETE FROM warehouses WHERE id = ?', [self._id])
         ManagerCore().db_connect.commit()
 
     
@@ -185,6 +183,6 @@ class MainController_2_Warehouses(MainController):
 
         ManagerCore().cursor.execute('''
             UPDATE warehouses
-                SET address = ?,
+                SET address = ?
                 WHERE id = ?''', (addr, int(self._id)))
 

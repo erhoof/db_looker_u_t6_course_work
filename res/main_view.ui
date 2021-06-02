@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>927</width>
-    <height>568</height>
+    <width>829</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -237,7 +237,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_1_products">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -305,6 +305,9 @@
           </item>
           <item>
            <widget class="QLineEdit" name="_1_lineEdit_search">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -332,6 +335,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
              <widget class="QPushButton" name="_1_pushButton_search_id">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>По ID</string>
               </property>
@@ -339,6 +345,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="_1_pushButton_search_name">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>По Имени</string>
               </property>
@@ -387,9 +396,6 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="_1_lineEdit_name"/>
-            </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_7">
               <property name="text">
@@ -405,6 +411,9 @@
                 <height>40</height>
                </size>
               </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="4" column="0">
@@ -414,9 +423,6 @@
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
-             <widget class="QLineEdit" name="_1_lineEdit_price_for_one"/>
-            </item>
             <item row="5" column="0">
              <widget class="QLabel" name="label_9">
               <property name="text">
@@ -424,20 +430,10 @@
               </property>
              </widget>
             </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="_1_lineEdit_packaging"/>
-            </item>
             <item row="6" column="0">
              <widget class="QLabel" name="label_10">
               <property name="text">
                <string>Кол-во товара</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QSpinBox" name="_1_spinBox_product_count">
-              <property name="value">
-               <number>1</number>
               </property>
              </widget>
             </item>
@@ -449,10 +445,42 @@
              </widget>
             </item>
             <item row="7" column="1">
-             <widget class="QPlainTextEdit" name="_1_plainTextEdit_addon"/>
+             <widget class="QPlainTextEdit" name="_1_plainTextEdit_addon">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="1" column="1">
              <widget class="QLabel" name="_1_label_id_warehouse">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLabel" name="_1_label_product_count">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="_1_label_price">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="_1_label_packaging">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="_1_label_name">
               <property name="text">
                <string>0</string>
               </property>
@@ -485,6 +513,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
              <widget class="QPushButton" name="_1_pushButton_change">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -501,6 +532,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="_1_pushButton_update">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -787,6 +821,9 @@
           </item>
           <item>
            <widget class="QPushButton" name="_3_pushButton_aboutContracts">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="font">
              <font>
               <pointsize>10</pointsize>
@@ -877,39 +914,6 @@
               </property>
              </widget>
             </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="_3_lineEdit_conclusionDate"/>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_30">
-              <property name="text">
-               <string>Доп. Сведения</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QPlainTextEdit" name="_3_plainTextEdit_addon"/>
-            </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="label_31">
-              <property name="text">
-               <string>Условия поставки</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="_3_lineEdit_delivery_conditions"/>
-            </item>
-            <item row="6" column="0">
-             <widget class="QLabel" name="label_34">
-              <property name="text">
-               <string>Сумма</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QLineEdit" name="_3_listEdit_price"/>
-            </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_5">
               <property name="text">
@@ -917,8 +921,43 @@
               </property>
              </widget>
             </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_31">
+              <property name="text">
+               <string>Условия поставки</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="_3_lineEdit_delivery_conditions"/>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_34">
+              <property name="text">
+               <string>Сумма</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="_3_label_price">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QDateEdit" name="_3_dateEdit_conclusion">
+              <property name="displayFormat">
+               <string>yyyy-MM-dd</string>
+              </property>
+             </widget>
+            </item>
             <item row="3" column="1">
-             <widget class="QLineEdit" name="_3_lineEdit_delivery_date"/>
+             <widget class="QDateEdit" name="_3_dateEdit_delivery">
+              <property name="displayFormat">
+               <string>yyyy-MM-dd</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -957,6 +996,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_8">
             <item>
              <widget class="QPushButton" name="_3_pushButton_editProducts">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -973,6 +1015,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="_3_pushButton_edit">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -989,6 +1034,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="_3_pushButton_update">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="font">
                <font>
                 <pointsize>10</pointsize>
@@ -1752,7 +1800,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>927</width>
+     <width>829</width>
      <height>19</height>
     </rect>
    </property>

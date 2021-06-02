@@ -1,2 +1,3 @@
-SELECT product_id FROM product_orders
-            WHERE warehouse_id = 0
+DELETE FROM payments;
+DELETE FROM contracts;
+DELETE FROM product_orders;
