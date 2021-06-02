@@ -58,6 +58,9 @@ class MainView(QMainWindow):
         self._ui._5_pushButton_update.clicked.connect(self._controller._5_manufacturers_tab.on_pushButton_update_clicked)
         self._ui._5_pushButton_edit_products.clicked.connect(self._controller._5_manufacturers_tab.on_pushButton_edit_products_clicked)
 
+        # Actons
+        self._ui.action_settings_user.triggered.connect(self._controller.on_action_users_clicked)
+
         self._controller._1_products_tab.update()
 
     @pyqtSlot(int)

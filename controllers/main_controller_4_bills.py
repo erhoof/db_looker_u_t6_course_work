@@ -35,7 +35,7 @@ class MainController_4_Bills(MainController):
         self._id = 0
 
         for id, type, price in ManagerCore().cursor:
-            type = 'В' if type else 'ИЗ'
+            type = 'Со счета' if type else 'На счет'
             item = QStandardItem(f'({id}) :{type}: {price}')
             self._list_model.appendRow(item)
 

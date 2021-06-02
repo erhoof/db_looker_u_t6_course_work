@@ -1,3 +1,6 @@
+from model.manager_core import ManagerCore
+from PyQt5.QtWidgets import QInputDialog
+import bcrypt
 from views.gen.ui_main_view import Ui_MainWindow
 from PyQt5.QtCore import QObject, pyqtSlot
 
@@ -59,6 +62,18 @@ class MainController(QObject):
         self._ui.stackedWidget.setCurrentIndex(5)
         self.enable_all_tab_buttons()
         self._ui.pushButton_orders.setEnabled(False)
+
+    @pyqtSlot(bool)
+    def on_action_users_clicked(self):
+        password = QInputDialog.getText(None, 'Смена пароля', 'Введите пароль для пользователя admin:')
+        password_hash = bcrypt.hashpw(password[0].encode(), bcrypt.gensalt(12))
+
+        ManagerCore().cursor.execute(f'''
+            UPDATE users
+                SET password_hash = ?
+                    WHERE login = ?''',
+                (password_hash, 'admin'))
+        ManagerCore().db_connect.commit()
 
 
 

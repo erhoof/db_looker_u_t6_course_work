@@ -109,7 +109,7 @@ class NewSaleController(QObject):
             INSERT INTO payments 
                 (type, order_id, date, price, vat, payment_status, admission_status)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (1, int(order_id), self._ui.dateEdit.text(), str(self.calculatePrice()), '20', 0, 0))
+        ''', (0, int(order_id), self._ui.dateEdit.text(), str(self.calculatePrice()), '20', 0, 0))
         ManagerCore().db_connect.commit()
 
         # 5. Decrease remaining count
