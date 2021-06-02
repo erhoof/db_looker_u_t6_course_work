@@ -1,3 +1,5 @@
+from views.new_sale_view import NewSaleView
+from controllers.new_sale_controller import NewSaleController
 from model.manager_core import ManagerCore
 from PyQt5.QtCore import QModelIndex, pyqtSlot
 from PyQt5.QtGui import QStandardItem, QStandardItemModel
@@ -24,7 +26,7 @@ class MainController_1_Products(MainController):
         # Get products
         ManagerCore().cursor.execute('''
             SELECT id, name FROM products
-                WHERE id IN (SELECT product_id FROM product_orders WHERE remain_count > 0)
+                WHERE id IN (SELECT product_id FROM product_orders WHERE remain_count > 0 AND contract_id NOT NULL)
         ''')
         
         # Fill Up list of products
@@ -38,9 +40,19 @@ class MainController_1_Products(MainController):
         # Count of products
         ManagerCore().cursor.execute('''
             SELECT COUNT(id) FROM products
-                WHERE id IN (SELECT product_id FROM product_orders WHERE remain_count > 0)
+                WHERE id IN (SELECT product_id FROM product_orders WHERE remain_count > 0 AND contract_id NOT NULL)
         ''')
         self._ui._1_label_count.setText(f'Кол-во: {ManagerCore().cursor.fetchall()[0][0]}')
+
+
+    @pyqtSlot()
+    def on_pushButton_new_order_clicked(self):
+        if not self._id: return
+
+        self._new_order_controller = NewSaleController(self._id)
+        self._new_order_view = NewSaleView(self._new_order_controller)
+        self._new_order_controller.update()
+        self._new_order_view.show()
 
 
     @pyqtSlot(QModelIndex, QModelIndex)
@@ -62,7 +74,7 @@ class MainController_1_Products(MainController):
         manufacturer_name = ManagerCore().cursor.fetchall()[0][0]
         # Get remain count
         ManagerCore().cursor.execute(f'''
-            SELECT SUM(remain_count) FROM product_orders WHERE product_id = ?
+            SELECT SUM(remain_count) FROM product_orders WHERE product_id = ? AND contract_id IS NOT NULL
         ''', [int(self._id)])
         remain_count = ManagerCore().cursor.fetchall()[0][0]
 
@@ -82,7 +94,7 @@ class MainController_1_Products(MainController):
             SELECT w.id, w.address, po.remain_count FROM warehouses AS w, product_orders AS po
                 WHERE w.id IN (
                     SELECT warehouse_id FROM product_orders WHERE product_id = ?
-                ) AND po.product_id = ? AND po.warehouse_id = w.id
+                ) AND po.product_id = ? AND po.warehouse_id = w.id AND po.contract_id IS NOT NULL
         ''', (self._id, self._id))
         for id, address, count in ManagerCore().cursor:
             self._ui._1_comboBox_avail.addItem(f'{id} - {address} ({count}шт.)')

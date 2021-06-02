@@ -36,7 +36,7 @@ class MainView(QMainWindow):
         self._ui.pushButton_orders.clicked.connect(self._controller.on_pushButton_orders_clicked)
 
         # Tab 1
-        #self._ui._1_pushButton_new_order.clicked.connect(self._controller._1_products_tab.on_1_pushButton_new_order_clicked)
+        self._ui._1_pushButton_new_order.clicked.connect(self._controller._1_products_tab.on_pushButton_new_order_clicked)
 
         # Tab 2
         self._ui._2_pushButton_new_warehouse.clicked.connect(self._controller._2_warehouses_tab.on_pushbutton_new_warehouse_clicked)
@@ -57,6 +57,8 @@ class MainView(QMainWindow):
         self._ui._5_pushButton_edit.clicked.connect(self._controller._5_manufacturers_tab.on_pushButton_edit_clicked)
         self._ui._5_pushButton_update.clicked.connect(self._controller._5_manufacturers_tab.on_pushButton_update_clicked)
         self._ui._5_pushButton_edit_products.clicked.connect(self._controller._5_manufacturers_tab.on_pushButton_edit_products_clicked)
+
+        self._controller._1_products_tab.update()
 
     @pyqtSlot(int)
     def on_stackedWidget_currentChanged(self, index):

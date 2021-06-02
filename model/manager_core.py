@@ -96,9 +96,7 @@ class ManagerCore(metaclass=Singleton):
         c.execute('''
             CREATE TABLE sales (
                 id INTEGER PRIMARY KEY,
-                product_order_id INTEGER NOT NULL,
                 client_id INTEGER NOT NULL,
-                FOREIGN KEY(product_order_id) REFERENCES product_orders(id),
                 FOREIGN KEY(client_id) REFERENCES clients(id)
             );
         ''')
