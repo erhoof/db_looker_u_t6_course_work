@@ -18,10 +18,10 @@ class LoginController(QObject):
         password = self._ui.passwordEdit.text()
         db_filename = self._ui.lineEdit_file.text()
 
-        if not login:
-            login = 'admin'
-        if not password:
-            password = 'admin'
+        #if not login:
+        #    login = 'admin'
+        #if not password:
+        #    password = 'admin'
         if not db_filename:
             db_filename = 'core.db'
 

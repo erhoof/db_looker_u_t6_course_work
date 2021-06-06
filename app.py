@@ -17,4 +17,5 @@ class App(QApplication):
 
 if __name__ == '__main__':
     app = App(sys.argv)
+    app.setStyle('Fusion')
     sys.exit(app.exec_()) 
